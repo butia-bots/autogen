@@ -356,6 +356,7 @@ def execute_code(
         detach=True,
         # get absolute path to the working directory
         volumes={abs_path: {"bind": "/workspace", "mode": "rw"}},
+        network_mode="host"
     )
     start_time = time.time()
     while container.status != "exited" and time.time() - start_time < timeout:
